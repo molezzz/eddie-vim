@@ -10,20 +10,20 @@ snippet b3-abtndanger
 snippet b3-abtninfo
 	<a href="${1:#}" class="btn btn-info">${2:Text}</a>
 
-snippet b3-abtninverse
-	<a href="${1:#}" class="btn btn-inverse">${2:Text}</a>
+snippet b3-abtndefault
+	<a href="${1:#}" class="btn btn-default">${2:Text}</a>
 
-snippet b3-abtnlarge
-	<a href="${1:#}" class="btn btn-large">${2:Text}</a>
+snippet b3-abtnlg
+	<a href="${1:#}" class="btn btn-lg">${2:Text}</a>
 
-snippet b3-abtnmini
-	<a href="${1:#}" class="btn btn-mini">${2:Text}</a>
+snippet b3-abtnxs
+	<a href="${1:#}" class="btn btn-xs">${2:Text}</a>
 
 snippet b3-abtnprimary
 	<a href="${1:#}" class="btn btn-primary">${2:Text}</a>
 
-snippet b3-abtnsmall
-	<a href="${1:#}" class="btn btn-small">${2:Text}</a>
+snippet b3-abtnsm
+	<a href="${1:#}" class="btn btn-sm">${2:Text}</a>
 
 snippet b3-abtnsuccess
 	<a href="${1:#}" class="btn btn-success">${2:Text}</a>
@@ -77,8 +77,8 @@ snippet b3-badgeimportant
 snippet b3-badgeinfo
 	<span class="badge badge-info">${1:2}</span>
 
-snippet b3-badgeinverse
-	<span class="badge badge-inverse">${1:2}</span>
+snippet b3-badgedefault
+	<span class="badge badge-default">${1:2}</span>
 
 snippet b3-badgesuccess
 	<span class="badge badge-success">${1:2}</span>
@@ -88,8 +88,8 @@ snippet b3-badgewarning
 
 snippet b3-breadcrumb
 	<ul class="breadcrumb">
-		<li><a href="${1:#}">${2:Home}</a> <span class="divider">/</span></li>
-		<li><a href="${3:#}">${4:Library}</a> <span class="divider">/</span></li>
+		<li><a href="${1:#}">${2:Home}</a></li>
+		<li><a href="${3:#}">${4:Library}</a></li>
 		<li class="active">${5:Data}</li>
 	</ul>
 
@@ -97,7 +97,7 @@ snippet b3-btn
 	<button type="button" class="btn">${1:Default}</button>
 
 snippet b3-btnblock
-	<button class="btn btn-large btn-block" type="button">${1:Block level button}</button>
+	<button class="btn btn-lg btn-block" type="button">${1:Block level button}</button>
 
 snippet b3-btndanger
 	<button type="button" class="btn btn-danger">${1:Default}</button>
@@ -107,70 +107,103 @@ snippet b3-btndisabled
 
 snippet b3-btndropdown
 	<div class="btn-group">
-		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+		<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
 			${1:Action}
 			<span class="caret"></span>
 		</a>
-		<ul class="dropdown-menu">
-			${2:<!-- dropdown menu links -->}
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">${2:<!-- dropdown menu links -->}</a></li>
+			<li><a href="#">Another action</a></li>
+			<li><a href="#">Something else here</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Separated link</a></li>
 		</ul>
 	</div>
 
 snippet b3-btndropdownsplit
 	<div class="btn-group">
-		<button class="btn">${1:Action}</button>
-		<button class="btn dropdown-toggle" data-toggle="dropdown">
+		<button class="btn btn-default">${1:Action}</button>
+		<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 			<span class="caret"></span>
 		</button>
-		<ul class="dropdown-menu">
-			${2:<!-- dropdown menu links -->}
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">${2:<!-- dropdown menu links -->}</a></li>
+			<li><a href="#">Another action</a></li>
+			<li><a href="#">Something else here</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Separated link</a></li>
 		</ul>
 	</div>
 
 snippet b3-btndropup
 	<div class="btn-group dropup">
-		<button class="btn">${1:Dropup}</button>
-		<button class="btn dropdown-toggle" data-toggle="dropdown">
+		<button class="btn btn-default">${1:Dropup}</button>
+		<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 			<span class="caret"></span>
 		</button>
-		<ul class="dropdown-menu">
-			${2:<!-- dropdown menu links -->}
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">${2:<!-- dropdown menu links -->}</a></li>
+			<li><a href="#">Another action</a></li>
+			<li><a href="#">Something else here</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Separated link</a></li>
 		</ul>
 	</div>
 
 
 snippet b3-btngroup
 	<div class="btn-group">
-		<button class="btn">${1:1}</button>
-		<button class="btn">${2:2}</button>
-		<button class="btn">${3:3}</button>
+		<button class="btn btn-default">${1:1}</button>
+		<button class="btn btn-default">${2:2}</button>
+		<button class="btn btn-default">${3:3}</button>
 	</div>
 
-snippet b3-btngroupvertical
+snippet b3-btngroupv
 	<div class="btn-group btn-group-vertical">
-		${1:...}
+		<button class="btn btn-default">${1:1}</button>
+		<button class="btn btn-default">${2:2}</button>
+		<button class="btn btn-default">${3:3}</button>
+	</div>
+
+snippet b3-btngroupj
+	<div class="btn-group btn-group-justified">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default">${1:1}</button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default">${2:2}</button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default">${2:2}</button>
+		</div>
+	</div>
+snippet b3-abtngroupj
+	<div class="btn-group btn-group-justified">
+		<a class="btn btn-default" role="button">${1:1}</a>
+		<a class="btn btn-default" role="button">${2:2}</a>
+		<a class="btn btn-default" role="button">${2:2}</a>
 	</div>
 
 snippet b3-btninfo
 	<button type="button" class="btn btn-info">${1:Default}</button>
 
-snippet b3-btninverse
-	<button type="button" class="btn btn-inverse">${1:Default}</button>
+snippet b3-btndefault
+	<button type="button" class="btn btn-default">${1:Default}</button>
 
-snippet b3-btnlarge
-	<button type="button" class="btn btn-large">${1:Default}</button>
+snippet b3-btnlg
+	<button type="button" class="btn btn-default btn-lg">${1:Default}</button>
 
 snippet b3-btnlink
 	<button type="button" class="btn btn-link">${1:Default}</button>
 
-snippet b3-btnmini
-	<button type="button" class="btn btn-mini">${1:Default}</button>
+snippet b3-btnxs
+	<button type="button" class="btn btn-default btn-xs">${1:Default}</button>
 
 snippet b3-btnprimary
 	<button type="button" class="btn btn-primary">${1:Default}</button>
 
-snippet b3-btnsmall
-	<button type="button" class="btn btn-small">${1:Default}</button>
+snippet b3-btnsm
+	<button type="button" class="btn btn-default btn-sm">${1:Default}</button>
 
 snippet b3-btnsuccess
 	<button type="button" class="btn btn-success">${1:Default}</button>
@@ -178,7 +211,9 @@ snippet b3-btnsuccess
 snippet b3-btntoolbar
 	<div class="btn-toolbar">
 		<div class="btn-group">
-			${1:...}
+			<button class="btn btn-default">${1:1}</button>
+			<button class="btn btn-default">${2:2}</button>
+			<button class="btn btn-default">${3:3}</button>
 		</div>
 	</div>
 
@@ -203,13 +238,7 @@ snippet b3-containerfluid
 		${1:...}
 	</div>
 
-snippet b3-controlsrow
-	<div class="controls controls-row">
-		<input class="${1:span4}" type="text" placeholder="${2:.span4}">
-		<input class="${3:span1}" type="text" placeholder="${4:.span1}">
-	</div>
-
-snippet b3-dlhorizontal
+snippet b3-dlh
 	<dl class="dl-horizontal">
 		<dt>${1:...}</dt>
 		<dd>${2:...}</dd>
@@ -218,74 +247,92 @@ snippet b3-dlhorizontal
 snippet b3-dropdownmenu
 	<div class="dropdown">
 		<!-- Link or button to toggle dropdown -->
+		<button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+			Dropdown
+			<span class="caret"></span>
+		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			<li><a tabindex="-1" href="#">${1:Action}</a></li>
-			<li><a tabindex="-1" href="#">${2:Another action}</a></li>
-			<li><a tabindex="-1" href="#">${3:Something else here}</a></li>
-			<li class="divider"></li>
-			<li><a tabindex="-1" href="#">${4:Separated link}</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">${1:Action}</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">${2:Another action}</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">${3:Something else here}</a></li>
+			<li role="presentation" class="divider"></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">${4:Separated link}</a></li>
 		</ul>
 	</div>
 
 snippet b3-form
-	<form>
+	<form role="form">
 		<fieldset>
 			<legend>${1:Legend}</legend>
-			<label>${2:Label name}</label>
-			<input type="text" placeholder="${3:Type something…}">
-			<span class="help-block">${4:Example block-level help text here.}</span>
-			<label class="checkbox">
-				<input type="checkbox"> ${5:Check me out}
-			</label>
-			<button type="submit" class="btn">${6:Submit}</button>
+			<div class="form-group">
+				<label >${2:Label name}</label>
+				<input type="text" class="form-control" placeholder="${3:Type something…}">
+				<span class="help-block">${4:Example block-level help text here.}</span>
+			</div>
+			<div class="form-group">
+				<label class="checkbox">
+					<input type="checkbox"> ${5:Check me out}
+				</label>
+			</div>
+			<button type="reset" class="btn btn-default">${6:Reset}</button>
+			<button type="submit" class="btn btn-primary">${6:Submit}</button>
 		</fieldset>
 	</form>
 
 snippet b3-formactions
-	<div class="form-actions">
+	<div class="form-group">
 		<button type="submit" class="btn btn-primary">${1:Save changes}</button>
-		<button type="button" class="btn">${2:Cancel}</button>
+		<button type="button" class="btn btn-default">${2:Cancel}</button>
 	</div>
 
-snippet b3-formhorizontal
-	<form class="form-horizontal">
-		<div class="control-group">
-			<label class="control-label" for="inputEmail">Email</label>
-			<div class="controls">
-				<input type="text" id="inputEmail" placeholder="Email">
+snippet b3-formh
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="inputEmail">Email</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="inputEmail" placeholder="Email">
 			</div>
 		</div>
-		<div class="control-group">
-			<label class="control-label" for="inputPassword">Password</label>
-			<div class="controls">
-				<input type="password" id="inputPassword" placeholder="Password">
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="inputPassword">Password</label>
+			<div class="col-sm-10">
+				<input type="password" class="form-control" id="inputPassword" placeholder="Password">
 			</div>
 		</div>
-		<div class="control-group">
-			<div class="controls">
-				<label class="checkbox">
-					<input type="checkbox"> Remember me
-				</label>
-				<button type="submit" class="btn">Sign in</button>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10 checkbox">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox"> Remember me
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default">Sign in</button>
 			</div>
 		</div>
 	</form>
 
 snippet b3-forminline
-	<form class="form-inline">
-		<input type="text" class="input-small" placeholder="${1:Email}">
-		<input type="password" class="input-small" placeholder="${2:Password}">
-		<label class="checkbox">
-			<input type="checkbox"> ${3:Remember me}
-		</label>
-		<button type="submit" class="btn">${4:Sign in}</button>
+	<form class="form-inline" role="form">
+		<div class="form-group">
+			<label class="sr-only">Email address</label>
+			<input type="text" class="form-control" placeholder="${1:Email}">
+		</div>
+		<div class="form-group">
+			<label class="sr-only">Password</label>
+			<input type="password" class="form-control" placeholder="${2:Password}">
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox"> ${3:Remember me}
+			</label>
+		</div>
+		<button type="submit" class="btn btn-default">${4:Sign in}</button>
 	</form>
 
-snippet b3-formsearch
-	<form class="form-search">
-		<input type="text" class="input-medium search-query">
-		<button type="submit" class="btn">${1:Search}</button>
-	</form>
 
 snippet b3-helpblock
 	<span class="help-block">${1:A longer block of help text that breaks onto a new line and may extend beyond one line.}</span>
@@ -293,12 +340,12 @@ snippet b3-helpblock
 snippet b3-helpinline
 	<span class="help-inline">${1:Inline help text}</span>
 
-snippet b3-herounit
-	<div class="hero-unit">
+snippet b3-jumb
+	<div class="jumbotron">
 		<h1>${1:Heading}</h1>
 		<p>${2:Tagline}</p>
 		<p>
-			<a class="btn btn-primary btn-large">
+			<a class="btn btn-primary btn-lg">
 				${3:Learn more}
 			</a>
 		</p>
@@ -306,19 +353,16 @@ snippet b3-herounit
 
 
 snippet b3-icon
-	<i class="icon-${1:search}"></i>
+	<i class="glyphicon glyphicon-${1:search}"></i>
 
-snippet b3-iconwhite
-	<i class="icon-${1:search} icon-white"></i>
+snippet b3-imgc
+	<img src="${1:...}" alt="..." class="img-circle">
 
-snippet b3-imgcircle
-	<img src="${1:...}" class="img-circle">
+snippet b3-imgt
+	<img src="${1:...}" alt="..." class="img-thumbnail">
 
-snippet b3-imgpolaroid
-	<img src="${1:...}" class="img-polaroid">
-
-snippet b3-imgrounded
-	<img src="${1:...}" class="img-rounded">
+snippet b3-imgr
+	<img src="${1:...}" alt="..." class="img-rounded">
 
 snippet b3-initialism
 	<abbr title="${1:HyperText Markup Language}" class="initialism">${2:HTML}</abbr>
@@ -328,66 +372,64 @@ snippet b3-inline
 		<li>${1:...}</li>
 	</ul>
 
-snippet b3-inputappend
-	<div class="input-append">
-		<input class="span2" id="appendedInput" type="text">
-		<span class="add-on">${1:.00}</span>
+snippet b3-inputgroup
+	<div class="input-group">
+		<span class="input-group-addon">${1:$}</span>
+		<input type="text" class="form-control" placeholder="${2:123}">
+		<span class="input-group-addon">${3:.00}</span>
 	</div>
 
-snippet b3-inputappendbtn
-	<div class="input-append">
-		<input class="span2" id="appendedInputButton" type="text">
-		<button class="btn" type="button">${1:Go!}</button>
+snippet b3-inputgrouplg
+	<div class="input-group input-group-lg">
+		<span class="input-group-addon">${1:$}</span>
+		<input type="text" class="form-control" placeholder="${2:123}">
+		<span class="input-group-addon">${3:.00}</span>
 	</div>
 
-snippet b3-inputappendbtndropdown
-	<div class="input-append">
-		<input class="span2" id="appendedDropdownButton" type="text">
-		<div class="btn-group">
-			<button class="btn dropdown-toggle" data-toggle="dropdown">
-				${1:Action}
-				<span class="caret"></span>
-			</button>
+snippet b3-inputgroupsm
+	<div class="input-group input-group-sm">
+		<span class="input-group-addon">${1:$}</span>
+		<input type="text" class="form-control" placeholder="${2:123}">
+		<span class="input-group-addon">${3:.00}</span>
+	</div>
+
+snippet b3-inputgroupbtn
+	<div class="input-group">
+		<input type="text" class="form-control">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button">${1:Go!}</button>
+		</span>
+	</div>
+
+snippet b3-inputgroupbtndropdown
+	<div class="input-group">
+		<div class="input-group-btn">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">${1:Action} <span class="caret"></span></button>
 			<ul class="dropdown-menu">
-				${2:...}
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
 			</ul>
-		</div>
-	</div>
+		</div><!-- /btn-group -->
+		<input type="text" class="form-control">
+	</div><!-- /input-group -->
 
-snippet b3-inputblocklevel
-	<input class="input-block-level" type="text">
+snippet b3-inputlg
+	<input class="input-lg" type="text">
 
-snippet b3-inputlarge
-	<input class="input-large" type="text">
+snippet b3-inputxs
+	<input class="input-xs" type="text">
 
-snippet b3-inputmedium
-	<input class="input-medium" type="text">
+snippet b3-inputsm
+	<input class="input-sm" type="text">
 
-snippet b3-inputmini
-	<input class="input-mini" type="text">
+snippet b3-inputxlg
+	<input class="input-xlg" type="text">
 
-snippet b3-inputprepend
-	<div class="input-prepend">
-		<span class="add-on">${1:@}</span>
-		<input class="span2" id="prependedInput" type="text" placeholder="${2:Username}">
-	</div>
-
-snippet b3-inputprependappend
-	<div class="input-prepend input-append">
-		<span class="add-on">${1:$}</span>
-		<input class="span2" id="${2:appendedPrependedInput}" type="text">
-		<span class="add-on">${3:.00}</span>
-	</div>
-
-
-snippet b3-inputsmall
-	<input class="input-small" type="text">
-
-snippet b3-inputxlarge
-	<input class="input-xlarge" type="text">
-
-snippet b3-inputxxlarge
-	<input class="input-xxlarge" type="text">
+snippet b3-inputxxlg
+	<input class="input-xxlg" type="text">
 
 snippet b3-label
 	<span class="label">${1:Default}</span>
@@ -398,8 +440,8 @@ snippet b3-labelimportant
 snippet b3-labelinfo
 	<span class="label label-info">${1:Info}</span>
 
-snippet b3-labelinverse
-	<span class="label label-inverse">${1:Inverse}</span>
+snippet b3-labeldefault
+	<span class="label label-default">${1:default}</span>
 
 snippet b3-labelsuccess
 	<span class="label label-success">${1:Success}</span>
@@ -447,67 +489,156 @@ snippet b3-medialist
 snippet b3-muted
 	<p class="muted">${1:Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.}</p>
 
+snippet b3-listgroup
+	<ul class="list-group">
+		<li class="list-group-item">${1:Cras justo odio}</li>
+		<li class="list-group-item">
+			<span class="badge">14</span>
+			Dapibus ac facilisis in
+		</li>
+		<li class="list-group-item">Morbi leo risus</li>
+		<li class="list-group-item">Porta ac consectetur ac</li>
+		<li class="list-group-item">Vestibulum at eros</li>
+	</ul>
+
+snippet b3-alistgroup
+	<div class="list-group">
+		<a href="#" class="list-group-item active">
+			${1:Cras justo odio}
+		</a>
+		<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+		<a href="#" class="list-group-item">Morbi leo risus</a>
+		<a href="#" class="list-group-item">Porta ac consectetur ac</a>
+		<a href="#" class="list-group-item">Vestibulum at eros</a>
+	</div>
+
+snippet b3-panel
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Panel title</h3>
+		</div>
+		<div class="panel-body">
+			Panel content
+		</div>
+		<div class="panel-footer">Panel footer</div>
+	</div>
+
+snippet b3-paneltable
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">${1:Panel heading}</div>
+		<div class="panel-body">
+			<p>${2:...}</p>
+		</div>
+
+		<!-- Table -->
+		<table class="table">
+			${3:...}
+		</table>
+	</div>
+
+snippet b3-panellistgroup
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">${1:Panel heading}</div>
+		<div class="panel-body">
+			<p>${2:...}</p>
+		</div>
+
+		<!-- List group -->
+		<ul class="list-group">
+			<li class="list-group-item">Cras justo odio</li>
+			<li class="list-group-item">Dapibus ac facilisis in</li>
+			<li class="list-group-item">Morbi leo risus</li>
+			<li class="list-group-item">Porta ac consectetur ac</li>
+			<li class="list-group-item">Vestibulum at eros</li>
+		</ul>
+	</div>
+
+
 snippet b3-navbar
-	<div class="navbar">
-		<div class="navbar-inner">
-			<a class="brand" href="#">${1:Title}</a>
-			<ul class="nav">
-				<li class="active"><a href="#">${2:Home}</a></li>
-				<li><a href="#">${3:Link}</a></li>
-				<li><a href="#">${4:Link}</a></li>
-			</ul>
-		</div>
-	</div>
-
-snippet b3-navbarcollapse
-	<div class="navbar">
-		<div class="navbar-inner">
-			<div class="container">
-
-				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
-				</a>
-
-				<!-- Be sure to leave the brand out there if you want it shown -->
-				<a class="brand" href="#">${1:Project name}</a>
-
-				<!-- Everything you want hidden at 940px or less, place within here -->
-				<div class="nav-collapse collapse">
-					${2:<!-- .nav, .navbar-search, .navbar-form, etc -->}
-				</div>
-
+				</button>
+				<a class="navbar-brand" href="#">Brand</a>
 			</div>
-		</div>
-	</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Link</a></li>
+					<li><a href="#">Link</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+							<li class="divider"></li>
+							<li><a href="#">One more separated link</a></li>
+						</ul>
+					</li>
+				</ul>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Link</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
 
 snippet b3-navbarfixedbottom
-	<div class="navbar navbar-fixed-bottom">
-		${1:...}
-	</div>
+	<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+		<div class="container">
+			${1:...}
+		</div>
+	</nav>
 
 snippet b3-navbarfixedtop
-	<div class="navbar navbar-fixed-top">
-		${1:...}
-	</div>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			${1:...}
+		</div>
+	</nav>
 
 snippet b3-navbarform
-	<form class="navbar-form pull-left">
-		<input type="text" class="span2">
-		<button type="submit" class="btn">${1:Submit}</button>
-	</form>
-
-snippet b3-navbarsearch
-	<form class="navbar-search pull-left">
-		<input type="text" class="search-query" placeholder="${1:Search}">
+	<form class="navbar-form navbar-left" role="search">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Search">
+		</div>
+		<button type="submit" class="btn btn-default">${1:Submit}</button>
 	</form>
 
 snippet b3-navbarstatictop
-	<div class="navbar navbar-static-top">
-		${1:...}
-	</div>
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container">
+			${1:...}
+		</div>
+	</nav>
 
 snippet b3-navlist
 	<ul class="nav nav-list">
@@ -596,46 +727,33 @@ snippet b3-pageraligned
 
 
 snippet b3-pagination
-	<div class="pagination">
-		<ul>
-			<li><a href="#">Prev</a></li>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li><a href="#">Next</a></li>
-		</ul>
-	</div>
+	<ul class="pagination">
+		<li><a href="#">Prev</a></li>
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#">Next</a></li>
+	</ul>
 
-snippet b3-paginationcentered
-	<div class="pagination pagination-centered">
-		${1:...}
-	</div>
-
-snippet b3-paginationlarge
-	<div class="pagination pagination-large">
+snippet b3-paginationlg
+	<div class="pagination pagination-lg">
 		<ul>
 			${1:...}
 		</ul>
 	</div>
 
 
-snippet b3-paginationmini
-	<div class="pagination pagination-mini">
+snippet b3-paginationxs
+	<div class="pagination pagination-xs">
 		<ul>
 			${1:...}
 		</ul>
 	</div>
 
-
-snippet b3-paginationright
-	<div class="pagination pagination-right">
-		${1:...}
-	</div>
-
-snippet b3-paginationsmall
-	<div class="pagination pagination-small">
+snippet b3-paginationsm
+	<div class="pagination pagination-sm">
 		<ul>
 			${1:...}
 		</ul>
@@ -649,56 +767,15 @@ snippet b3-prescrollable
 
 snippet b3-progress
 	<div class="progress">
-		<div class="bar" style="width: ${1:60}%;"></div>
-	</div>
-
-snippet b3-progressdanger
-	<div class="progress progress-danger">
-		<div class="bar" style="width: ${1:50}%"></div>
-	</div>
-
-snippet b3-progressinfo
-	<div class="progress progress-info">
-		<div class="bar" style="width: ${1:50}%"></div>
-	</div>
-
-snippet b3-progressstacked
-	<div class="progress">
-		<div class="bar bar-success" style="width: ${1:35}%;"></div>
-		<div class="bar bar-warning" style="width: ${2:20}%;"></div>
-		<div class="bar bar-danger" style="width: ${3:10}%;"></div>
-	</div>
-
-snippet b3-progressstriped
-	<div class="progress progress-striped">
-		<div class="bar" style="width: ${1:20}%;"></div>
-	</div>
-
-snippet b3-progressstripedactive
-	<div class="progress progress-striped active">
-		<div class="bar" style="width: ${1:40}%;"></div>
-	</div>
-
-snippet b3-progresssuccess
-	<div class="progress progress-success">
-		<div class="bar" style="width: ${1:50}%"></div>
-	</div>
-
-snippet b3-progresswarning
-	<div class="progress progress-warning">
-		<div class="bar" style="width: ${1:50}%"></div>
+		<div class="progress-bar" role="progressbar" aria-valuenow="${1:60}" aria-valuemin="0" aria-valuemax="100" style="width: %{2:60}%;">
+			<span class="sr-only">${3:60% Complete}</span>
+		</div>
 	</div>
 
 snippet b3-row
 	<div class="row">
-		<div class="span${1:4}">${2:...}</div>
-		<div class="span${3:8}">${4:...}</div>
-	</div>
-
-snippet b3-rowfluid
-	<div class="row-fluid">
-		<div class="span${1:4}">${2:...}</div>
-		<div class="span${3:8}">${4:...}</div>
+		<div class="col-md-${1:4}">${2:...}</div>
+		<div class="col-md-${3:8}">${4:...}</div>
 	</div>
 
 snippet b3-tabbable
@@ -817,7 +894,7 @@ snippet b3-thumbnailsdiv
 	</ul>
 
 snippet b3-uneditableinput
-	<span class="input-large uneditable-input">${1:Some value here}</span>
+	<span class="input-lg uneditable-input">${1:Some value here}</span>
 
 snippet b3-unstyled
 	<ul class="unstyled">
@@ -829,12 +906,12 @@ snippet b3-well
 		${1:...}
 	</div>
 
-snippet b3-welllarge
-	<div class="well well-large">
+snippet b3-welllg
+	<div class="well well-lg">
 		${1:...}
 	</div>
 
-snippet b3-wellsmall
-	<div class="well well-small">
+snippet b3-wellsm
+	<div class="well well-sm">
 		${1:...}
 	</div>
