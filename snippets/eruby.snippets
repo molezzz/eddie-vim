@@ -2,7 +2,7 @@ snippet lt
 	<%= link_to "${1:caption}", ${2:path} %>${3}
 snippet ltd
 	<%= link_to '删除',
-							blog_comment_path(comment.blog_id, comment),
+							${1:model_path}(${2:model}),
 							:method => :delete,
 							:data => {:confirm => '确实要删除吗？'},
 							:class => 'btn btn-sm btn-danger'
@@ -228,22 +228,32 @@ snippet dlayoutshow
 	</div>
 
 snippet dlayoutcomment
-	<h5>评论：</h5>
-	<% @comments.each do |comment| %>
-	<div class="media">
-		<a class="pull-left" href="#">
-			<img class="media-object" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">
-		</a>
-		<div class="media-body">
-			<h4 class="media-heading"><%=comment.created_at.strftime('%Y-%m-%d')%></h4>
+		<h5>评论：</h5>
+		<% @comments.each do |comment| %>
+		<div class="media well well-sm">
+			<a class="pull-left" href="#">
+				<img class="media-object" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">
+			</a>
+			<div class="media-body">
+				<h4 class="media-heading clearfix">
+					<div class="pull-left"><%=comment.created_at.strftime('%Y-%m-%d')%></div>
+					<div class="pull-right">
+						<%= link_to '删除',
+												blog_comment_path(comment.blog_id, comment),
+												:method => :delete,
+												:data => {:confirm => '确实要删除吗？'},
+												:class => 'btn btn-sm btn-danger'
+						%>
+					</div>
+				</h4>
 
-			<!-- Nested media object -->
-			<div class="media">
-				<%=comment.message%>
+				<!-- Nested media object -->
+				<div class="media">
+					<%=comment.message%>
+				</div>
 			</div>
 		</div>
-	</div>
-	<% end %>
+		<% end %>
 
 
 
