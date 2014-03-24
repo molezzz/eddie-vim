@@ -2,12 +2,12 @@ snippet lt
 	<%= link_to "${1:caption}", ${2:path} %>${3}
 snippet cf
 	<%= content_for :${1:yield_label_name} do %>
-	  ${2}
+		${2}
 	<% end %>
 snippet ff
 	<% form_for @${1:model} do |f| %>
-	  <%= f.error_messages %>
-	  <%= f.submit "${2:button}" %>
+		<%= f.error_messages %>
+		<%= f.submit "${2:button}" %>
 	<% end %>
 snippet ffff
 	<%= f.file_field :${1:attribute} %>
@@ -31,21 +31,198 @@ snippet slt
 	<%= stylesheet_link_tag "${1:stylesheet_filename}", :media => "${2:all}" %>
 snippet each
 	<% ${1:collection}.each do |${2:member}| %>
-	  ${3}
+		${3}
 	<% end %>
 snippet if
 	<% if ${1:condition} %>
-	  ${2}
+		${2}
 	<% end %>
 snippet unless
 	<% unless ${1:cond} %>
-	  ${2}
+		${2}
 	<% end %>
 snippet ife
 	<% if ${1:cond} %>
-	  ${2}
+		${2}
 	<% else %>
-	  ${3}
+		${3}
 	<% end %>
 snippet yield
 	<%= yield :${1:partial} %>
+
+snippet dlayout
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title><%= content_for?(:title) ? yield(:title) : "rails4_demo" %></title>
+			<%= csrf_meta_tags %>
+
+			<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+			<!--[if lt IE 9]>
+				<script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+			<![endif]-->
+
+			<%= stylesheet_link_tag "lumen", :media => "all" %>
+
+			<%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
+
+		</head>
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">My Blog</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#">${1:菜单1}</a></li>
+							<li><a href="#">${2:菜单2}</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">其他菜单<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+									<li class="divider"></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul>
+							</li>
+						</ul>
+						<form class="navbar-form navbar-left" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							</div>
+							<button type="submit" class="btn btn-default">搜索</button>
+						</form>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#">注册</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">操作<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><%= link_to '操作1', new_model_path %></li>
+									<li class="divider"></li>
+									<li><a href="#">退出登录</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<%= yield %>
+
+			<!-- Javascripts
+			================================================== -->
+			<!-- Placed at the end of the document so the pages load faster -->
+			<%= javascript_include_tag "lumen" %>
+			<%= yield(:page_javascript) if content_for?(:page_javascript) %>
+		</body>
+	</html>
+
+snippet dform
+	<div class="well">
+		<%= form_for ${1:@model}, :html => {:class => 'form-horizontal'} do |f| %>
+			<div class="form-group">
+				<%= f.label '标题', :class => 'control-label col-sm-1' %>
+				<div class="col-sm-11">
+					<%= f.text_field :title, :class => 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<%= f.label '内容', :class => 'control-label col-sm-1' %>
+				<div class="col-sm-11">
+					<%= f.text_area :content, :class => 'form-control',:rows => 15 %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-1 col-sm-11">
+					<%= f.submit '保存', :class => 'btn btn-primary' %>
+					<%= link_to t('.cancel', :default => '取消'),
+									${2:models_path}, :class => 'btn' %>
+				</div>
+			</div>
+
+		<% end %>
+	</div>
+
+snippet dlayoutnew
+	<%- model_class = ${1:Model} -%>
+	<div class="container">
+		<div class="page-header">
+			<h1>新建${1}</h1>
+		</div>
+		<%= render :partial => 'form' %>
+	</div>
+
+snippet dlayoutedit
+	<%- model_class = ${1:Model} -%>
+	<div class="container">
+		<div class="page-header">
+			<h1>编辑${1}</h1>
+		</div>
+		<%= render :partial => 'form' %>
+	</div>
+
+snippet dlayoutshow
+	<%- model_class = Model -%>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body" style="padding-bottom: 2em;">
+				<div class="page-header">
+					<h1>
+						<%=${2:@model}.title %>
+					</h1>
+
+				</div>
+				<div class="row clearfix">
+					<div class="col-md-12">
+						<div class="btn-toolbar pull-right" role="toolbar">
+								<div class="btn-group">
+								<%= link_to '返回' ,
+											${3:models_path}, :class => 'btn btn-sm btn-default'	%>
+								<%= link_to '编辑',
+											${4:edit_model_path(@model)}, :class => 'btn btn-sm btn-default' %>
+								<%= link_to '删除',
+											${5:model_path(@model)},
+											:method => 'delete',
+											:data => { :confirm => '确实要删除吗？' },
+											:class => 'btn btn-sm	btn-default' %>
+
+								</div>
+						</div>
+				 </div>
+				</div>
+
+				<p>
+					<%=%{6:@model.content}%>
+				</p>
+			</div>
+		</div>
+
+snippet dlayoutcomment
+	<h5>评论：</h5>
+	<% @comments.each do |comment| %>
+	<div class="media">
+		<a class="pull-left" href="#">
+			<img class="media-object" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">
+		</a>
+		<div class="media-body">
+			<h4 class="media-heading"><%=comment.title%></h4>
+
+			<!-- Nested media object -->
+			<div class="media">
+				<%=comment.content%>
+			</div>
+		</div>
+	</div>
+	<% end %>
+
+
+
