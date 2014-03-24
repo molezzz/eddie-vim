@@ -1,5 +1,12 @@
 snippet lt
 	<%= link_to "${1:caption}", ${2:path} %>${3}
+snippet ltd
+	<%= link_to '删除',
+							blog_comment_path(comment.blog_id, comment),
+							:method => :delete,
+							:data => {:confirm => '确实要删除吗？'},
+							:class => 'btn btn-sm btn-danger'
+	%>
 snippet cf
 	<%= content_for :${1:yield_label_name} do %>
 		${2}
@@ -116,7 +123,24 @@ snippet dlayout
 				</div><!-- /.container-fluid -->
 			</nav>
 
-			<%= yield %>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<%= yield %>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">作者简介</h3>
+							</div>
+							<div class="panel-body">
+								我的简介
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
 
 			<!-- Javascripts
 			================================================== -->
@@ -154,57 +178,54 @@ snippet dform
 
 snippet dlayoutnew
 	<%- model_class = ${1:Model} -%>
-	<div class="container">
-		<div class="page-header">
-			<h1>新建${1}</h1>
-		</div>
-		<%= render :partial => 'form' %>
+	<div class="page-header">
+		<h1>新建${1}</h1>
 	</div>
+	<%= render :partial => 'form' %>
+
 
 snippet dlayoutedit
 	<%- model_class = ${1:Model} -%>
-	<div class="container">
-		<div class="page-header">
-			<h1>编辑${1}</h1>
-		</div>
-		<%= render :partial => 'form' %>
+	<div class="page-header">
+		<h1>编辑${1}</h1>
 	</div>
+	<%= render :partial => 'form' %>
+
 
 snippet dlayoutshow
 	<%- model_class = Model -%>
-	<div class="container">
-		<div class="panel panel-default">
-			<div class="panel-body" style="padding-bottom: 2em;">
-				<div class="page-header">
-					<h1>
-						<%=${2:@model}.title %>
-					</h1>
+	<div class="panel panel-default">
+		<div class="panel-body" style="padding-bottom: 2em;">
+			<div class="page-header">
+				<h1>
+					<%=${2:@model}.title %>
+				</h1>
 
-				</div>
-				<div class="row clearfix">
-					<div class="col-md-12">
-						<div class="btn-toolbar pull-right" role="toolbar">
-								<div class="btn-group">
-								<%= link_to '返回' ,
-											${3:models_path}, :class => 'btn btn-sm btn-default'	%>
-								<%= link_to '编辑',
-											${4:edit_model_path(@model)}, :class => 'btn btn-sm btn-default' %>
-								<%= link_to '删除',
-											${5:model_path(@model)},
-											:method => 'delete',
-											:data => { :confirm => '确实要删除吗？' },
-											:class => 'btn btn-sm	btn-default' %>
-
-								</div>
-						</div>
-				 </div>
-				</div>
-
-				<p>
-					<%=%{6:@model.content}%>
-				</p>
 			</div>
+			<div class="row clearfix">
+				<div class="col-md-12">
+					<div class="btn-toolbar pull-right" role="toolbar">
+							<div class="btn-group">
+							<%= link_to '返回' ,
+										${3:models_path}, :class => 'btn btn-sm btn-default'	%>
+							<%= link_to '编辑',
+										${4:edit_model_path(@model)}, :class => 'btn btn-sm btn-default' %>
+							<%= link_to '删除',
+										${5:model_path(@model)},
+										:method => 'delete',
+										:data => { :confirm => '确实要删除吗？' },
+										:class => 'btn btn-sm	btn-default' %>
+
+							</div>
+					</div>
+			</div>
+			</div>
+
+			<p>
+				<%=%{6:@model.content}%>
+			</p>
 		</div>
+	</div>
 
 snippet dlayoutcomment
 	<h5>评论：</h5>
@@ -214,11 +235,11 @@ snippet dlayoutcomment
 			<img class="media-object" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">
 		</a>
 		<div class="media-body">
-			<h4 class="media-heading"><%=comment.title%></h4>
+			<h4 class="media-heading"><%=comment.created_at.strftime('%Y-%m-%d')%></h4>
 
 			<!-- Nested media object -->
 			<div class="media">
-				<%=comment.content%>
+				<%=comment.message%>
 			</div>
 		</div>
 	</div>
