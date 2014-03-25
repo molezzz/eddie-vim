@@ -81,7 +81,7 @@ snippet dlayout
 				<div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
-						<a class="navbar-brand" href="#">My Blog</a>
+						<a class="navbar-brand" href="#">站点名称</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -175,6 +175,7 @@ snippet dform
 
 		<% end %>
 	</div>
+
 snippet dlayoutindex
 	<%- model_class = Model -%>
 	<div class="page-header">
@@ -205,6 +206,7 @@ snippet dlayoutindex
 		</div>
 	</div>
 	<% end %>
+
 snippet dlayoutnew
 	<%- model_class = ${1:Model} -%>
 	<div class="page-header">
@@ -251,7 +253,7 @@ snippet dlayoutshow
 			</div>
 
 			<p>
-				<%=%{6:@model.content}%>
+				<%=@model.content%>
 			</p>
 		</div>
 	</div>
