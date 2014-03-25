@@ -176,11 +176,11 @@ snippet dform
 		<% end %>
 	</div>
 snippet dlayoutindex
-	<%- model_class = Blog -%>
+	<%- model_class = Model -%>
 	<div class="page-header">
-		<h1>最新博文 <small>[<%=Time.new.strftime('%Y年%m月%d日')%>]</small></h1>
+		<h1>标题 <small>[<%=Time.new.strftime('%Y年%m月%d日')%>]</small></h1>
 	</div>
-	<% @blogs.each do |model| %>
+	<% @models.each do |model| %>
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<h3><%= link_to model.title, model %></h3>
@@ -193,9 +193,9 @@ snippet dlayoutindex
 			<div class="pull-right">
 				<div class="btn-group">
 				<%= link_to '编辑',
-										edit_blog_path(model), :class => 'btn btn-default btn-sm' %>
+										edit_model_path(model), :class => 'btn btn-default btn-sm' %>
 				<%= link_to '删除',
-										blog_path(model),
+										model_path(model),
 										:method => :delete,
 										:data => { :confirm =>	'确实要删除吗?'},
 										:class => 'btn btn-sm btn-danger' %>
