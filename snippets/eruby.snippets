@@ -175,7 +175,36 @@ snippet dform
 
 		<% end %>
 	</div>
+snippet dlayoutindex
+	<%- model_class = Blog -%>
+	<div class="page-header">
+		<h1>最新博文 <small>[<%=Time.new.strftime('%Y年%m月%d日')%>]</small></h1>
+	</div>
+	<% @blogs.each do |model| %>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<h3><%= link_to model.title, model %></h3>
+			<p><%=model.content%></p>
+		</div>
+		<div class="panel-footer clearfix">
+			<div class="pull-left">
+				 更新时间： <%=model.updated_at.strftime('%Y-%m-%d')%>
+			</div>
+			<div class="pull-right">
+				<div class="btn-group">
+				<%= link_to '编辑',
+										edit_blog_path(model), :class => 'btn btn-default btn-sm' %>
+				<%= link_to '删除',
+										blog_path(model),
+										:method => :delete,
+										:data => { :confirm =>	'确实要删除吗?'},
+										:class => 'btn btn-sm btn-danger' %>
 
+				</div>
+			</div>
+		</div>
+	</div>
+	<% end %>
 snippet dlayoutnew
 	<%- model_class = ${1:Model} -%>
 	<div class="page-header">
