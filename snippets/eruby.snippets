@@ -177,7 +177,6 @@ snippet dform
 	</div>
 
 snippet dlayoutindex
-	<%- model_class = Model -%>
 	<div class="page-header">
 		<h1>标题 <small>[<%=Time.new.strftime('%Y年%m月%d日')%>]</small></h1>
 	</div>
@@ -208,7 +207,6 @@ snippet dlayoutindex
 	<% end %>
 
 snippet dlayoutnew
-	<%- model_class = ${1:Model} -%>
 	<div class="page-header">
 		<h1>新建${1}</h1>
 	</div>
@@ -216,7 +214,6 @@ snippet dlayoutnew
 
 
 snippet dlayoutedit
-	<%- model_class = ${1:Model} -%>
 	<div class="page-header">
 		<h1>编辑${1}</h1>
 	</div>
@@ -224,7 +221,6 @@ snippet dlayoutedit
 
 
 snippet dlayoutshow
-	<%- model_class = Model -%>
 	<div class="panel panel-default">
 		<div class="panel-body" style="padding-bottom: 2em;">
 			<div class="page-header">
